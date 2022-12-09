@@ -1,0 +1,258 @@
+JAVA
+
+1)
+import java.util.*;
+public class Main {
+
+	public static void main(String[] args) {
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter the size");
+		int n=sc.nextInt();
+		String s[]=new String[n];
+		System.out.println("Enter the elements in array");
+		for(int i=0;i<s.length;i++) {
+		s[i]=sc.next();	
+		}
+		HashSet<String> str=new HashSet<String>();
+		for(int i=0;i<s.length;i++) {
+			str.add(s[i].toLowerCase());
+		}
+		System.out.println(str);
+		
+	}
+
+}
+
+2)
+class Main {
+    public static void main(String[] args) {
+        Product pr = new Product();
+        pr.getProductName();
+        
+        Price p = new Price();
+        p.getPrice();
+    }
+}
+abstract class Market{
+    abstract void getPrice();
+    abstract void getProductName();
+}
+
+class Price extends Market{
+    @Override
+    public void getPrice(){
+        System.out.println("The price is "+20);
+    }
+    @Override
+    public void getProductName(){
+        
+    }
+}
+
+class Product extends Market{
+    @Override
+    public void getProductName(){
+        System.out.println("Product = Maggi");
+    }
+    @Override
+    public void getPrice(){
+        
+    }
+}
+
+
+3)
+import java.util.*;
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the size of array");
+		int size=sc.nextInt();
+		int array[]=new int[size];
+		System.out.println("Enter elements to array");
+		for(int i=0;i<size;i++) {
+			array[i]=sc.nextInt();
+		}
+		int temp;
+	     // size = array.length;
+
+	      for(int i = 0; i<size; i++ ){
+	         for(int j = i+1; j<size; j++){
+
+	            if(array[i]>array[j]){
+	               temp = array[i];
+	               array[i] = array[j];
+	               array[j] = temp;
+	            }
+	         }
+	      }
+	      System.out.println("second largest number is:: "+array[size-2]);
+	 
+	}
+
+}
+
+4)
+public class Main {
+    public static void main(String[] args) { 
+        int arr[] = {5,6,7,8,9,1,2,13};
+        for(int i=0;i<arr.length;i++)
+        { 
+            for(int j=i+1;j<arr.length;j++)
+            {
+                for(int k=0;k<arr.length;k++)
+                { 
+                    if(arr[i]+arr[j]==arr[k])
+                    {
+                        System.out.println(arr[i]+" "+arr[j]);
+                    }
+                }
+            }
+        }
+    }
+}
+
+SQL
+
+CREATE TABLE Subject(
+       id VARCHAR(10) PRIMARY KEY,
+	   rollno INT,
+	   subname VARCHAR(20),
+	   marks INT
+);
+
+CREATE TABLE Student(
+      id VARCHAR(10),
+	  rollno INT,
+	  sname VARCHAR(20),
+	  address VARCHAR(50),
+	  FOREIGN KEY(id) REFERENCES Subject(id)
+);
+
+INSERT INTO Subject VALUES('A001', 2863, 'Maths', 80);
+INSERT INTO Subject VALUES('A002', 2864, 'Physics', 90);
+INSERT INTO Subject VALUES('A003', 2865, 'Chemistry', 50);
+INSERT INTO Subject VALUES('A004', 2866, 'Biology', 70);
+INSERT INTO Subject VALUES('A005', 2867, 'History', 60);
+
+
+INSERT INTO Student VALUES('A003', 2865, 'Ayush', 'bbsr');
+INSERT INTO Student VALUES('A004', 2866, 'Anurag', 'jsg');
+INSERT INTO Student VALUES('A004', 2866, 'Rahul', 'jsr');
+INSERT INTO Student VALUES('A001', 2863, 'Manish', 'sng');
+
+SELECT subname, COUNT(id) AS 'Total Students' FROM Subject
+WHERE subname = 'Biology'
+GROUP BY subname;
+
+SELECT SUM(marks) AS TotMarks FROM Subject, Student
+WHERE Subject.id = Student.id
+AND sname = 'Ayush';
+
+
+
+
+
+CREATE TABLE Product(
+    id INT PRIMARY KEY,
+	name VARCHAR(30),
+	price INT,
+	location VARCHAR(30)
+);
+
+CREATE TABLE manufacturer(
+    id INT,
+	company_name VARCHAR(30),
+	product_id VARCHAR(5),
+	address VARCHAR(20),
+	FOREIGN KEY(id) REFERENCES Product(id)
+);
+
+INSERT INTO Product VALUES(1, 'Ayush', 100, 'bbsr');
+INSERT INTO Product VALUES(2, 'Aman', 200, 'jsg');
+INSERT INTO Product VALUES(3, 'Anurag', 50, 'jsr');
+INSERT INTO Product VALUES(4, 'Rahul', 300, 'sng');
+INSERT INTO Product VALUES(5, 'Manish', 70, 'bjr');
+
+INSERT INTO manufacturer VALUES(2, 'Virtusa', 'A01', 'khandagiri');
+INSERT INTO manufacturer VALUES(3, 'Microsoft', 'A02', 'Patia');
+INSERT INTO manufacturer VALUES(3, 'Hexaware', 'A03', 'Udaygiri');
+INSERT INTO manufacturer VALUES(1, 'Informatica', 'A04', 'Jagmohan Nagar');
+INSERT INTO manufacturer VALUES(4, 'Meta.net', 'A05', 'Bapujinagar');
+
+SELECT company_name FROM Product, manufacturer
+WHERE Product.id = manufacturer.id
+AND product_id = 'A02';
+
+
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEBPAGE</title>
+    <style>
+        div.container{
+        display:grid;
+        grid-template-columns:18% 78%;
+        grid-gap:10px;
+        }
+ 
+        div.nested-item{
+        display:grid;
+        grid-template-columns:repeat(1,1fr);
+        grid-template-rows: 75px 420px 75px;
+        }
+
+        div.main-section{
+        display:grid;
+        grid-template-columns:30% 20%;
+        grid-gap:10px;
+        }
+
+        div.item2{
+        background-color:green;
+        padding:10px;
+        }
+        div.item3{
+        background-color:skyblue;
+        padding:10px;
+        }
+        div.item4{
+        background-color:rgb(169, 205, 50);
+        padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item1" id="nav" >
+          <img src="img3.jpg" alt="This is a logo"  width="100"><br>
+            Sign up<br>
+          Home<br>
+          Product<br>
+          Help
+        </div>
+        <div class="nested-item">
+          <div class="item2" id="header">
+            SITE NAME
+          </div>
+          <div class="main-section">
+            <div class="item3" id="artical">
+              CONTENT
+            </div>
+            <div class="item4" id="ads">
+              
+            </div>
+          </div>
+          <div class="item2" id="footer">
+              Footer
+          </div>
+        </div>
+      </div>
+</body>
+</html>
